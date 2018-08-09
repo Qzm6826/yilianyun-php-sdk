@@ -1,0 +1,4 @@
+*.log
+composer.lock
+.idea
+*.wf

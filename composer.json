@@ -1,0 +1,21 @@
+{
+  "name": "yly-openapi/yly-openapi-sdk",
+  "description": "yly-openapi-php-sdk",
+  "license": "MIT",
+  "keywords": [
+    "yly"
+  ],
+  "version": "1.0.1",
+  "authors": [
+    {
+      "name": "quzimo",
+      "email": "lwy@yilianyun.net"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {"App\\": "Lib/"}
+  }
+}
