@@ -111,14 +111,14 @@ class YlyOauthClient{
         if (is_null($response)) {
             throw new Exception("illegal response :" . $requestResponse);
         }
-        if ($response->error != 0) {
+        if ($response->error != 0 && $response->error_description != 'success') {
             throw new Exception(json_encode($response));
         }
         if ($this->log != null) {
             $this->log->info("response: " . json_encode($response));
         }
         curl_close($curl); // 关键CURL会话
-        return $response; // 返回数据
+        return $response->body; // 返回数据
     }
 
 

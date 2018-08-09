@@ -15,11 +15,11 @@ class YlyConfig{
     {
 
         if ($clientId == null || $clientId == "") {
-            throw new InvalidArgumentException("app_key is required");
+            throw new InvalidArgumentException("clientId is required");
         }
 
         if ($clientSecret == null || $clientSecret == "") {
-            throw new InvalidArgumentException("app_secret is required");
+            throw new InvalidArgumentException("clientSecret is required");
         }
 
         $this->clientId = $clientId;

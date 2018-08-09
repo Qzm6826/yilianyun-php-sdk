@@ -16,6 +16,6 @@ class PicturePrintService extends RpcService{
      */
     public function index($machineCode, $pictureUrl, $originId)
     {
-        return $this->client->call('picture/index', array('machine_code' => $machineCode, 'picture_url' => $pictureUrl, 'origin_id' => $originId));
+        return $this->client->call('pictureprint/index', array('machine_code' => $machineCode, 'picture_url' => $pictureUrl, 'origin_id' => $originId));
     }
 }

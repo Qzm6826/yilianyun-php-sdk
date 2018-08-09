@@ -26,13 +26,13 @@ class YlyRpcClient{
     public function call($action, array $params)
     {
         $time = time();
-        $params []= array(
+        $params = array_merge(array(
             'client_id' => $this->clientId,
             'timestamp' => $time,
             'sign' => $this->getSign($time),
             'id' => $this->uuid4(),
             'access_token' => $this->token,
-        );
+        ), $params);
         $result = $this->send($params, $this->requestUrl . '/' .$action);
         $response = json_decode($result, false, 512, JSON_BIGINT_AS_STRING);
         if (is_null($response)) {
