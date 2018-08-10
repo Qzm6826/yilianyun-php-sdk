@@ -3,12 +3,12 @@
   "description": "yly-openapi-php-sdk",
   "license": "MIT",
   "keywords": [
-    "yly"
+    "yly-openapi-php-sdk"
   ],
   "version": "1.0.1",
   "authors": [
     {
-      "name": "quzimo",
+      "name": "曲子陌",
       "email": "lwy@yilianyun.net"
     }
   ],
