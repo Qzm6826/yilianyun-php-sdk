@@ -22,10 +22,10 @@ composer require yly-openapi/yly-openapi-sdk
   
 ```php
 <?php
-//composer下加载
+//composer下加载方式
 include_once __DIR__ . "/vendor/autoload.php";
 
-//自动加载
+//gitHub下载加载方式
 include_once __DIR__ . "/Lib/Autoloader.php";
 
 //初始化配置
