@@ -4,6 +4,30 @@ namespace App\Api;
 
 class PrinterService extends RpcService{
 
+    /**
+     * 自有型应用授权终端
+     *
+     * @param $machineCode string 机器码
+     * @param $mSign string 机器密钥
+     * @param string $printName 打印机昵称
+     * @param string $phone gprs卡号
+     * @return mixed
+     */
+    public function addPrinter($machineCode, $mSign,  $printName = '', $phone = '')
+    {
+        $params = array(
+            'machine_code' => $machineCode,
+            'msign' => $mSign,
+        );
+        if (!empty($phone)) {
+            $params['phone'] = $phone;
+        }
+        if (!empty($printName)) {
+            $params['print_name'] = $printName;
+        }
+        return $this->client->call('printer/addprinter', $params);
+    }
+
 
     /**
      * 设置内置语音接口

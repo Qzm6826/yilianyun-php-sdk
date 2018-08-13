@@ -31,12 +31,19 @@ include_once __DIR__ . "/Lib/Autoloader.php";
 //初始化配置
 use App\Config\YlyConfig;
 $config = new YlyConfig('你的应用id', '你的应用密钥');
-$client = new YlyOauthClient($config);
 
 //获取token
 use App\Oauth\YlyOauthClient;
+$client = new YlyOauthClient($config);
 $token = $client->getToken();   //若是开放型应用请传授权码code
 var_dump($token);
+
+//授权打印机(自有型应用使用,开放型应用请跳过该步骤)
+use App\Api\PrinterService;
+$printer = new PrinterService($token->access_token, $config);
+$data = $printer->addPrinter('你的机器码', '你的机器密钥', '机器昵称也可不填', 'gprs卡号没有可不填');
+var_dump($data);
+
 
 //调取文本打印
 use App\Api\PrintService;
