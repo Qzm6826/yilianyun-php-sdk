@@ -14,6 +14,11 @@ PHP >= 5.4
 composer require yly-openapi/yly-openapi-sdk
 ```
 
+若composer失败，请换到国内镜像  
+```shell
+composer config -g repo.packagist composer https://packagist.laravel-china.org
+```
+
 # Usage
   1. 接口类Lib/Api/*.php，集成了所有的易联云接口
   2. 配置类Lib/Config/YlyConfig.php
