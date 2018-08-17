@@ -24,7 +24,7 @@ composer config -g repo.packagist composer https://packagist.laravel-china.org
   2. 配置类Lib/Config/YlyConfig.php
   3. 授权类Lib/Oauth/YlyOauthClient.php，获取调用凭证AccessToken，每日上限次数２０次，２４小时后更新次数
   4. 接口调用类Lib/Protocol/YlyRpcClient.php，包括了md5工具函数，Sign工具函数，uuid函数，可以直接用这个类直接进行接口调用
-  5. 若觉的好用,大佬们请在<a href= 'https://github.com/Qzm6826/yilianyun-php-sdk'>GitHub</a>上给小曲一个Star，在此小曲先感谢各位大佬了，小曲也会时长更新接口的，为大佬们提供方便！
+  5. 若觉的好用，大佬们请在<a href= 'https://github.com/Qzm6826/yilianyun-php-sdk'>GitHub</a>上给小曲一个Star，在此小曲先感谢各位大佬了，小曲也会时长更新接口的，为大佬们提供方便！
   
 ```php
 <?php
