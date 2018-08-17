@@ -206,4 +206,31 @@ class PrinterService extends RpcService{
     }
 
 
+    /**
+     * 获取订单状态接口
+     *
+     * @param $machineCode string 机器码
+     * @param $orderId  string 易联云订单id
+     * @return mixed
+     */
+    public function getOrderStatus($machineCode, $orderId)
+    {
+        return $this->client->call('printer/getorderstatus', array('machine_code' => $machineCode, 'order_id' => $orderId));
+    }
+
+
+    /**
+     * 获取订单列表接口
+     *
+     * @param $machineCode string 机器码
+     * @param $pageIndex int 第几页
+     * @param $pageSize int 查询条数
+     * @return mixed
+     */
+    public function getOrderPagingList($machineCode, $pageIndex = 1 , $pageSize = 10)
+    {
+        return $this->client->call('printer/getorderpaginglist', array('machine_code' => $machineCode, 'page_index' => $pageIndex, 'page_size' => $pageSize));
+    }
+
+
 }
