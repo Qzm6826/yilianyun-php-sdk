@@ -11,7 +11,7 @@ PHP >= 5.4
 # Installation
 
 ```shell
-composer require yly-openapi/yly-openapi-sdk
+composer require yly-openapi/yly-openapi-sdk:dev-master
 ```
 
 若composer失败，请换到国内镜像  
