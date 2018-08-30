@@ -11,7 +11,7 @@ PHP >= 5.4
 # Installation
 
 ```shell
-composer require yly-openapi/yly-openapi-sdk:dev-master
+composer require yly-openapi/yly-openapi-sdk:v1.0.1
 ```
 
 若composer失败，请换到国内镜像  
@@ -49,7 +49,6 @@ use App\Api\PrinterService;
 $printer = new PrinterService($token->access_token, $config);
 $data = $printer->addPrinter('你的机器码', '你的机器密钥', '机器昵称也可不填', 'gprs卡号没有可不填');
 var_dump($data);
-
 
 //调取文本打印
 use App\Api\PrintService;
