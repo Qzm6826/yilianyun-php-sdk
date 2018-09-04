@@ -232,5 +232,16 @@ class PrinterService extends RpcService{
         return $this->client->call('printer/getorderpaginglist', array('machine_code' => $machineCode, 'page_index' => $pageIndex, 'page_size' => $pageSize));
     }
 
+    /**
+     * 获取终端状态接口
+     *
+     * @param $machineCode string 机器码
+     * @return mixed
+     */
+    public function getPrintStatus($machineCode)
+    {
+        return $this->client->call('printer/getprintstatus', array('machine_code' => $machineCode));
+    }
+
 
 }
