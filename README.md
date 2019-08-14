@@ -16,7 +16,7 @@ composer require yly-openapi/yly-openapi-sdk:v1.0.1
 
 若composer失败，请换到国内镜像  
 ```shell
-composer config -g repo.packagist composer https://packagist.laravel-china.org
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 ```
 
 # Usage
