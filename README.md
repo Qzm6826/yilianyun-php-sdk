@@ -11,7 +11,7 @@ PHP >= 5.4
 # Installation
 
 ```shell
-composer require yly-openapi/yly-openapi-sdk:v1.0.1
+composer require yly-openapi/yly-openapi-sdk
 ```
 
 若composer失败，请换到国内镜像  
@@ -24,7 +24,6 @@ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
   2. 配置类Lib/Config/YlyConfig.php
   3. 授权类Lib/Oauth/YlyOauthClient.php，获取调用凭证AccessToken，每日上限次数２０次，２４小时后更新次数
   4. 接口调用类Lib/Protocol/YlyRpcClient.php，包括了md5工具函数，Sign工具函数，uuid函数，可以直接用这个类直接进行接口调用
- 5. 若觉的好用，大佬们请在<a href= 'https://github.com/Qzm6826/yilianyun-php-sdk'>GitHub</a>上给子陌一个Star，在此子陌先感谢各位大佬，抱拳！子陌也会时长更新接口的，为大佬们提供方便！
   
 ```php
 <?php
@@ -37,6 +36,8 @@ include_once __DIR__ . "/Lib/Autoloader.php";
 //初始化配置
 use App\Config\YlyConfig;
 $config = new YlyConfig('你的应用id', '你的应用密钥');
+//v2.0接口需设置请求域名
+$config->setRequestUrl('https://open-api.10ss.net/v2');
 
 //获取token
 use App\Oauth\YlyOauthClient;
@@ -63,3 +64,13 @@ $data = $print->index('你的机器码','打印内容排版可看Demo下的callb
 var_dump($data);
 
 ```
+
+# ChangeLog
+#### [v2.0]
+* Release Date : 2023-06-07
+1. [Feature]更新接口v2.0版本，[文档](https://www.kancloud.cn/ly6886/oauth-api/3170299)
+2. [Feature]v2新增[订单重打（单订单）](https://www.kancloud.cn/ly6886/oauth-api/3170332)接口。
+3. [Feature]v2新增[面单取消](https://www.kancloud.cn/ly6886/oauth-api/3170326)
+
+#### [v1.0.3]
+1. 无

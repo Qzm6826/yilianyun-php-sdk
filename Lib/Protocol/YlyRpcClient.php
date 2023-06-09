@@ -42,7 +42,7 @@ class YlyRpcClient{
             isset($response->error) &&
             $response->error != 0
         ){
-            $errorDescription = isset($response->body) ? $response->error_description . $response->body : $response->error_description;
+            $errorDescription = $response->error_description;
             throw new Exception('Call method ' . $action . ' error code is ' . $response->error . ' error message is ' . $errorDescription);
         }
 

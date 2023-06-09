@@ -20,6 +20,7 @@ $access_token = $token->access_token;               //调用API凭证AccessToken
 $refresh_token = $token->refresh_token;             //刷新AccessToken凭证 失效时间35天
 $machine_code = $token->machine_code;               //商户授权机器码
 $expires_in = $token->expires_in;                   //AccessToken失效时间30天
+$refresh_expires_in = $token->refresh_expires_in;   //RefreshToken失效时间35天
 $origin_id = '';                                    //内部订单号(32位以内)
 
 

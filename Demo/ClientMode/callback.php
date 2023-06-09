@@ -6,6 +6,7 @@ use App\Api\ExpressPrintService;
 
 $client = new YlyOauthClient($config);
 try {
+    //
     $token = $client->getToken();
 } catch (Exception $e) {
     echo $e->getMessage() . "\n";
@@ -16,6 +17,7 @@ try {
 $access_token = $token->access_token;           //调用API凭证AccessToken 永久有效,请妥善保存.
 $refresh_token = $token->refresh_token;         //刷新AccessToken凭证 失效时间35天
 $expires_in = $token->expires_in;               //自有型应用可忽略此回调参数, AccessToken失效时间30天
+$refresh_expires_in = $token->refresh_expires_in; //自有型应用可忽略此回调参数, RefreshToken失效时间35天
 $machine_code = '';                             //机器码
 $origin_id = '';                                //内部订单号(32位以内)
 

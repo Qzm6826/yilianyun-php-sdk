@@ -243,5 +243,17 @@ class PrinterService extends RpcService{
         return $this->client->call('printer/getprintstatus', array('machine_code' => $machineCode));
     }
 
+    /**
+     * 订单重打（单订单）
+     *
+     * @param $machineCode
+     * @param $orderId
+     * @return mixed
+     * @throws \Exception
+     */
+    public function reprintOrder($machineCode, $orderId)
+    {
+        return $this->client->call('printer/reprintorder', array('machine_code' => $machineCode, 'order_id' => $orderId));
+    }
 
 }

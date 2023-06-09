@@ -20,4 +20,17 @@ class ExpressPrintService extends RpcService{
         return $this->client->call('expressprint/index', array('machine_code' => $machineCode, 'content' => $content, 'origin_id' => $originId, 'sandbox' => $sandbox));
     }
 
+    /**
+     * 面单取消接口
+     *
+     * @param $machineCode
+     * @param $content
+     * @return mixed
+     * @throws \Exception
+     */
+    public function cancel($machineCode, $content)
+    {
+        return $this->client->call('expressprint/cancel', array('machine_code' => $machineCode, 'content' => $content));
+    }
+
 }
