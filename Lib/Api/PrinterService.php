@@ -256,4 +256,19 @@ class PrinterService extends RpcService{
         return $this->client->call('printer/reprintorder', array('machine_code' => $machineCode, 'order_id' => $orderId));
     }
 
+    /**
+     * K8关键词设置
+     *
+     * @param $machineCode
+     * @param $keys
+     * @param $type
+     * @param $content
+     * @return mixed
+     * @throws \Exception
+     */
+    public function setKeyWords($machineCode, $keys, $type, $content)
+    {
+        return $this->client->call('	/printer/setkeywords', array('machine_code' => $machineCode, 'keys' => $keys, 'type' => $type, 'content' => $content));
+    }
+
 }
