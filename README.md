@@ -61,9 +61,10 @@ var_dump($data);
 ```
 
 # ChangeLog
-#### [v2.0]
+#### [v2.0.1]
 * Release Date : 2023-10-18
-2. [Feature]v2更新[K8关键词设置](https://www.kancloud.cn/ly6886/oauth-api/3198288)接口。
+1. [Feature]v2更新[K8关键词设置](https://www.kancloud.cn/ly6886/oauth-api/3198288)接口。
+#### [v2.0]
 * Release Date : 2023-06-07
 1. [Feature]更新接口v2.0版本，[文档](https://www.kancloud.cn/ly6886/oauth-api/3170299)
 2. [Feature]v2新增[订单重打（单订单）](https://www.kancloud.cn/ly6886/oauth-api/3170332)接口。
