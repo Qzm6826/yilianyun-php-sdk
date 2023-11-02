@@ -257,7 +257,20 @@ class PrinterService extends RpcService{
     }
 
     /**
-     * K8关键词设置
+     * K8 推送开关设置
+     *
+     * @param $machineCode
+     * @param $status
+     * @return mixed
+     * @throws \Exception
+     */
+    public function pushSwitch($machineCode, $status)
+    {
+        return $this->client->call('printer/pushswitch', array('machine_code' => $machineCode, 'status' => $status));
+    }
+
+    /**
+     * K8 关键词设置接口
      *
      * @param $machineCode
      * @param $keys
@@ -268,7 +281,32 @@ class PrinterService extends RpcService{
      */
     public function setKeyWords($machineCode, $keys, $type, $content)
     {
-        return $this->client->call('	/printer/setkeywords', array('machine_code' => $machineCode, 'keys' => $keys, 'type' => $type, 'content' => $content));
+        return $this->client->call('printer/setkeywords', array('machine_code' => $machineCode, 'keys' => $keys, 'type' => $type, 'content' => $content));
+    }
+
+    /**
+     * K8 高级设置接口
+     *
+     * @param $machineCode
+     * @param null $usbPrintMode
+     * @param null $usbInputMode
+     * @param null $cameraDecodeTxMode
+     * @return mixed
+     * @throws \Exception
+     */
+    public function setting($machineCode, $usbPrintMode = null, $usbInputMode = null, $cameraDecodeTxMode = null)
+    {
+        $params = array('machine_code' => $machineCode);
+        if (!is_null($usbPrintMode) && in_array($usbPrintMode, [0, 1])) {
+            $params['usb_print_mode'] = (int)$usbInputMode;
+        }
+        if (!is_null($usbInputMode) && in_array($usbInputMode, [0, 1])) {
+            $params['usb_input_mode'] = (int)$usbInputMode;
+        }
+        if (!is_null($cameraDecodeTxMode) && in_array($cameraDecodeTxMode, [0, 1])) {
+            $params['camera_decode_tx_mode'] = (int)$cameraDecodeTxMode;
+        }
+        return $this->client->call('printer/setting', $params);
     }
 
 }
