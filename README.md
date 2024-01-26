@@ -61,6 +61,9 @@ var_dump($data);
 ```
 
 # ChangeLog
+#### [v2.0.4]
+* Release Date : 2024-01-26
+1. Fix UUID4 Error
 #### [v2.0.3]
 * Release Date : 2023-11-01
 1. [Feature]v2新增[K8推送开关设置](https://www.kancloud.cn/ly6886/oauth-api/3208323)接口。
