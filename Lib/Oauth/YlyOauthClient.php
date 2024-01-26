@@ -66,8 +66,9 @@ class YlyOauthClient{
     }
 
 
-    public function uuid4(){
-        mt_srand((double)microtime() * 10000);
+    public function uuid4()
+    {
+        mt_srand(mt_rand());
         $charid = strtolower(md5(uniqid(rand(), true)));
         $hyphen = '-';
         $uuidV4 =
