@@ -61,6 +61,9 @@ var_dump($data);
 ```
 
 # ChangeLog
+#### [v2.0.5]
+* Release Date : 2024-01-26
+1. printer/pushswitch api 新增mode字段
 #### [v2.0.4]
 * Release Date : 2024-01-26
 1. Fix UUID4 Error
