@@ -261,12 +261,13 @@ class PrinterService extends RpcService{
      *
      * @param $machineCode
      * @param $status
+     * @param $mode
      * @return mixed
      * @throws \Exception
      */
-    public function pushSwitch($machineCode, $status)
+    public function pushSwitch($machineCode, $status, $mode = 1)
     {
-        return $this->client->call('printer/pushswitch', array('machine_code' => $machineCode, 'status' => $status));
+        return $this->client->call('printer/pushswitch', array('machine_code' => $machineCode, 'status' => $status, $mode));
     }
 
     /**
