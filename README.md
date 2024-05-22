@@ -61,6 +61,9 @@ var_dump($data);
 ```
 
 # ChangeLog
+#### [v2.0.6]
+* Release Date : 2024-05-22
+1. 补全开放型应用下扫码授权模式
 #### [v2.0.5]
 * Release Date : 2024-05-08
 1. printer/pushswitch api 新增mode字段

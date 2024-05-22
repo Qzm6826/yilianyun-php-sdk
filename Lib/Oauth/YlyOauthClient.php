@@ -8,7 +8,7 @@ class YlyOauthClient{
 
     private $clientId;
     private $clientSecret;
-    private $tokenUrl;
+    private $requestUrl;
     private $log;
 
 
@@ -16,7 +16,7 @@ class YlyOauthClient{
     {
         $this->clientId = $config->getClientId();
         $this->clientSecret = $config->getClientSecret();
-        $this->tokenUrl = $config->getRequestUrl() . '/oauth/oauth';
+        $this->requestUrl = $config->getRequestUrl();
         $this->log = $config->getLog();
     }
 
@@ -36,9 +36,32 @@ class YlyOauthClient{
             $params['code'] = $code;
             $params['grant_type'] = 'authorization_code';
         }
-        return $this->send($params);
+
+        $url = sprintf("%s/%s", $this->requestUrl, 'oauth/oauth');
+        return $this->send($params, $url);
     }
 
+
+    public function getTokenBySecret($machineCode, $secret, $secretType = 0)
+    {
+        $time = time();
+        $params = array(
+            'client_id' => $this->clientId,
+            'timestamp' => $time,
+            'sign' => $this->getSign($time),
+            'id' => $this->uuid4(),
+            'machine_code' => $machineCode,
+            'scope' => 'all'
+        );
+        if ($secretType == 1) {
+            $params['qr_key'] = $secret;
+        } else {
+            $params['msign'] = $secret;
+        }
+
+        $url = sprintf("%s/%s", $this->requestUrl, 'oauth/scancodemodel');
+        return $this->send($params, $url);
+    }
 
     public function refreshToken($refreshToken)
     {
@@ -52,7 +75,9 @@ class YlyOauthClient{
             'grant_type' => 'refresh_token',
             'refresh_token' => $refreshToken,
         );
-        return $this->send($params);
+
+        $url = sprintf("%s/%s", $this->requestUrl, 'oauth/oauth');
+        return $this->send($params, $url);
     }
 
 
@@ -81,7 +106,7 @@ class YlyOauthClient{
     }
 
 
-    public function send($data)
+    public function send($data, $url)
     {
         $requestInfo = http_build_query($data);
         $log = $this->log;
@@ -89,7 +114,7 @@ class YlyOauthClient{
             $log->info("request data: " . $requestInfo);
         }
         $curl = curl_init(); // 启动一个CURL会话
-        curl_setopt($curl, CURLOPT_URL, $this->tokenUrl); // 要访问的地址
+        curl_setopt($curl, CURLOPT_URL, $url); // 要访问的地址
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); // 对认证证书来源的检测
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             'Expect:'
